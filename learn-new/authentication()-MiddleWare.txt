@@ -1,0 +1,19 @@
+The line of code router.Use(middleware.Authentication()) registers the middleware.Authentication() middleware with the router. The middleware.Authentication() middleware authenticates each request before it is handled by the actual handler. This means that the user must provide valid credentials before they can access the protected resources. The authentication middleware can be used to implement a variety of authentication schemes, such as basic authentication, OAuth 2.0, and JWT.
+
+The Use() method registers a middleware function with the router. The middleware function is executed before or after a handler is called. Middleware can be used to add common functionality to all requests, such as logging, authentication, and rate limiting.
+
+The middleware.Authentication() middleware is a powerful middleware function that can be used to protect your application from unauthorized access. It is a good choice for applications that need to be secure.
+
+Here is an example of how to use the middleware.Authentication() middleware with the Gin router:
+
+router := gin.New()
+router.Use(gin.Logger())
+router.Use(middleware.Authentication())
+router.GET("/", func(c *gin.Context) {
+    c.JSON(200, gin.H{
+        "message": "Hello, world!",
+    })
+})
+This code registers the gin.Logger() and middleware.Authentication() middleware with the router and defines a route that will respond to all HTTP GET requests to the root path. The handler for this route will simply return a JSON response with the message "Hello, world!".
+
+The middleware.Authentication() middleware is a simple way to add authentication to your Gin application. It is a good starting point for building web applications that need to be secure.
