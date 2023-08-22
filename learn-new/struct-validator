@@ -1,0 +1,7 @@
+The validator package is a Golang package that provides functions for validating data.
+
+The validate.Struct() method validates the struct against a set of validation rules. The validation rules are specified in the validator package.
+
+If the struct is valid, the validate.Struct() method returns nil. If the struct is invalid, the validate.Struct() method returns an error.
+
+The var validate = validator.New() line of code creates a new instance of the validator struct. The validator struct is used to validate data.

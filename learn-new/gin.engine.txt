@@ -1,0 +1,7 @@
+gin.Engine object is the main object in the Gin web framework. It is used to create and configure routes, middleware, and other aspects of the web application.
+
+The *gin.Engine object has a number of methods for creating and configuring routes. For example, the GET() method can be used to create a GET route, the POST() method can be used to create a POST route, and so on.
+
+The *gin.Engine object also has a number of methods for configuring middleware. Middleware is code that is executed before or after a request is handled by a controller function. For example, the Use() method can be used to add a middleware function to the *gin.Engine object.
+
+The *gin.Engine object is a powerful tool for creating web applications with Gin. It provides a simple and elegant way to create and configure routes, middleware, and other aspects of the web application.

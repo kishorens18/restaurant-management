@@ -1,0 +1,28 @@
+for getting an particular collection from database using context 
+
+first , take variable in that assign particular collection using  context 
+foodId := c.Param("food_id")
+
+next , create a variable with struct type 
+var food models.Food
+
+next , find the collection in the db using FindOne func and decode the collection into previously created variable food
+
+err := foodCollection.FindOne(ctx, bson.M{"food_id": foodId}).Decode(&food)
+
+lastly , clear all the timer and check for error , if not return the food items
+
+func GetFood() gin.HandlerFunc // for giving response for the request {
+	return func(c *gin.Context) // for accessing the db collection {
+		var ctx, cancle = context.WithTimeout(context.Background(), 100*time.Second)
+		foodId := c.Param("food_id")
+		var food models.Food
+
+		err := foodCollection.FindOne(ctx, bson.M{"food_id": foodId}).Decode(&food)
+		defer cancle()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "error acquired while fetching the food item"})
+		}
+		c.JSON(http.StatusOK, food)
+	}
+}

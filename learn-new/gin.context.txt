@@ -1,0 +1,1 @@
+*gin.Context object as input. This object provides information about the HTTP request, such as the URL, the request method, and the request body.
